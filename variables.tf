@@ -20,10 +20,10 @@ variable "ssh_password" {
   sensitive = true
 }
 
-# 你本地证书/License目录（WSL路径）
+# 你本地证书/License目录（WSL路径） default = "/mnt/f/01_Project/01-Vault/MAS/config"
 variable "local_config_dir" {
   type    = string
-  default = "/mnt/f/01_Project/01-Vault/MAS/config"
+  default = "/home/config"
 }
 
 # Vault 版本（可改）
