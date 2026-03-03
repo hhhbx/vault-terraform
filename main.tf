@@ -101,12 +101,18 @@ resource "null_resource" "vault_node" {
     transit_mount   = var.transit_mount_path
     transit_skip    = tostring(var.transit_tls_skip_verify)
 
-    ca_sha  = filesha256("${var.local_config_dir}/root-ca.crt")
-    crt_sha = filesha256("${var.local_config_dir}/vault-api.crt")
-    key_sha = filesha256("${var.local_config_dir}/vault-api.pem")
-    lic_sha = filesha256("${var.local_config_dir}/vault.hclic")
-    env_sha = filesha256("${var.local_config_dir}/vault.env")
-  }
+    #ca_sha  = filesha256("${var.local_config_dir}/root-ca.crt")
+    #crt_sha = filesha256("${var.local_config_dir}/vault-api.crt")
+    #key_sha = filesha256("${var.local_config_dir}/vault-api.pem")
+    #lic_sha = filesha256("${var.local_config_dir}/vault.hclic")
+    #env_sha = filesha256("${var.local_config_dir}/vault.env")
+      
+    ca_sha  = filesha256("/home/config/root-ca.crt")
+    crt_sha = filesha256("/home/config/vault-api.crt")
+    key_sha = filesha256("/home/config/vault-api.pem")
+    lic_sha = filesha256("/home/config/vault.hclic")
+    env_sha = filesha256("/home/config/vault.env")
+}
 
   connection {
     type     = "ssh"
